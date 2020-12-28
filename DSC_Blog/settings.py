@@ -26,8 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'sc+@-30a2-fwywx&$r-@imyrrcvrr3mf3w!f+lwi^fu0bb2u-b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG=os.environ.get('DJANGO_DEBUG','')!='False'
+DEBUG = False
+
 ALLOWED_HOSTS = ["backend-dsc.herokuapp.com","127.0.0.1"]
 
 
