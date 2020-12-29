@@ -101,12 +101,12 @@ class PostListView(ListAPIView):
         query = self.request.GET.get("q")
         if query :
             queryset_list = queryset_list.filter(
-                Q(title__icontains=q)|
-                Q(body__icontains=q)|
-                Q(description__icontains=q)|
-                Q(user__username__icontains=q)|
-                Q(tag__title__icontains=q)|
-                Q(category__title__icontains=q)
+                Q(title__icontains=query)|
+                Q(body__icontains=query)|
+                Q(description__icontains=query)|
+                Q(user__username__icontains=query)|
+                Q(tag__title__icontains=query)|
+                Q(category__title__icontains=query)
             ).distinct()
         return queryset_list
 
