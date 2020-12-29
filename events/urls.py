@@ -7,6 +7,6 @@ from .views import (
 
 app_name = "events"
 urlpatterns = [
-    path('event/', EventListView.as_view(), name="list_all_event"),
-    path('event/create/', EventCreateView.as_view(), name="create_event"),
+    path('', EventListView.as_view(), name="list_all_event"),
+    path('create/', EventCreateView.as_view(), name="create_event"),
 ]
