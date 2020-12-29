@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Ceremony(models.Model):
     user = models.ForeignKey(User ,related_name="ceremonies", on_delete=models.CASCADE)
+    title = models.CharField(max_length=200, blank=False, unique=True)
     slug = models.SlugField(default='', editable=False, max_length=200, unique=True)
     speaker = models.CharField(max_length=200, blank=False, unique=True)
     description = models.TextField(max_length=200, blank=False)

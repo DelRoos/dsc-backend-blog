@@ -249,11 +249,13 @@ class LeconCreateView(CreateAPIView):
     serializer_class = LeconCreateSerializer
     permission_classes = [IsAuthenticated, IsAdminFormation, IsNotPublish]
 
-class PostCommentListView(ListAPIView):
+class PostCommentListView(RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostCommentDetailSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
+    permission_classes = [IsPublish]
+
 
 class CommentCreateView(CreateAPIView):
     queryset = Comment.objects.all()

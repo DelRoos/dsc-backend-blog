@@ -6,6 +6,7 @@ class CeremonyListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ceremony
         fields = (
+                    'title',
                     'slug',
                     'speaker',
                     'description',

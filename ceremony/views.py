@@ -17,7 +17,7 @@ from .serializers import (
 class CeremonyListView(ListAPIView):
     serializer_class = CeremonyListSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['description', 'speaker']
+    search_fields = ['title', 'description', 'speaker']
     pagination_class = PostPageNumberPagination
 
     # how to use search or q
@@ -27,6 +27,7 @@ class CeremonyListView(ListAPIView):
         if query :
             queryset_list = queryset_list.filter(
                 Q(description__icontains=query)|
+                Q(title__icontains=query)|
                 Q(speaker__icontains=query)|
                 Q(user__username__icontains=query)
             ).distinct()
