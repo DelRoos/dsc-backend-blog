@@ -117,7 +117,7 @@ class  Lecon(models.Model):
     title = models.CharField(max_length=200, blank=False, unique=True)
     slug = models.SlugField(default='', editable=False, max_length=200, unique=True)
     banner = models.URLField(max_length=1000, blank=True)
-    durate = models.IntegerField()
+    durate = models.TimeField(blank=True)
     position = models.IntegerField()
     body = models.TextField(blank=False)
     formation = models.ForeignKey(Formation, on_delete=models.CASCADE, related_name="summary", blank=False)
