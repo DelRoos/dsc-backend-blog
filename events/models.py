@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Event(models.Model):
+class Evenement(models.Model):
     speaker = models.CharField(max_length=255)
     title = models.CharField(max_length=200, blank=False, unique=True)
     banner = models.URLField(max_length=500, blank=True)
