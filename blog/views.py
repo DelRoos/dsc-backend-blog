@@ -112,7 +112,7 @@ class PostListView(ListAPIView):
 
 class ListRecentPostView(ListAPIView):
     serializer_class = PostDetailSerializer
-    queryset = Post.objects.all().order_by('publish_at')[:4]
+    queryset = Post.objects.filter(status="published").order_by('publish_at')[:4]
 
 class CategoryListView(ListAPIView):
     serializer_class = CategoryListSerializer
