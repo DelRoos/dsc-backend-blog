@@ -22,3 +22,4 @@ urlpatterns = [
     path('api/account/', include('accounts.urls')),
     path('api/', include('ceremony.urls')),
 ]
+#oppp
