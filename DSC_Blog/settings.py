@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'django_filters',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
-    'event_manager.apps.EventManagerConfig',
     'corsheaders',
 
 ]
