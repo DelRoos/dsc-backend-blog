@@ -28,7 +28,7 @@ class CeremonyListView(ListAPIView):
             queryset_list = queryset_list.filter(
                 Q(description__icontains=query)|
                 Q(titre__icontains=query)|
-                Q(speaker__icontains=query)|
+                Q(speaker__icontains=query)
                 #Q(user__username__icontains=query)
             ).distinct()
         return queryset_list
