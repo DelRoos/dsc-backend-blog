@@ -16,12 +16,6 @@ class Ceremony(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ceremony_day = models.DateTimeField(blank=True)
 
-    def get_absolute_url(self):
-        kwargs = {
-            'pk': self.id,
-            'slug': self.slug
-        }
-        return reverse('article-pk-slug-detail', kwargs=kwargs)
 
     def save(self, *args, **kwargs):
         value = self.titre
