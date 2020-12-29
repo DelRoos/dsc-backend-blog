@@ -22,3 +22,4 @@ class Ceremony(models.Model):
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
     
+#djdj
