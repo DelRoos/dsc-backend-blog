@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Evenement
+from .models import Event_manager
 from utils.pagination import EventPageNumberPagination
 from rest_framework.filters import (
     SearchFilter,
@@ -7,19 +7,13 @@ from rest_framework.filters import (
 )
 
 from rest_framework.generics import (
-    ListAPIView,
-    CreateAPIView,
+    ListAPIView
 )
 from .serializers import (  
-    EventListSerializer,
-    EventCreateSerializer,
+    EventListSerializer
 )
 
 class EventListView(ListAPIView):
-    queryset = Evenement.objects.all()
+    queryset = Event_manager.objects.all()
     serializer_class = EventListSerializer
     pagination_class = EventPageNumberPagination
-
-class EventCreateView(CreateAPIView):
-    queryset = Evenement.objects.all()
-    serializer_class = EventCreateSerializer

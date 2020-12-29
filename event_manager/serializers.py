@@ -3,13 +3,13 @@ from rest_framework.serializers import (
         HyperlinkedRelatedField
     )
 from rest_framework import serializers 
-from .models import Evenement
+from .models import Event_manager
 from rest_framework.reverse import reverse
 from django.http import HttpRequest
 
 class EventListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Evenement
+        model = Event_manager
         fields = (
                     'speaker',
                     'title',
@@ -18,16 +18,3 @@ class EventListSerializer(serializers.ModelSerializer):
                     'date_pub',
                     'chapter_url',
                 )
-
-class EventCreateSerializer(serializers.ModelSerializer): 
-    class Meta:
-        model = Evenement
-        fields = (
-                    'speaker',
-                    'title',
-                    'banner',
-                    'date_event', 
-                    'date_pub',
-                    'chapter_url',
-                )
-
