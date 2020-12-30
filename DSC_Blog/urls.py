@@ -20,10 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/blog/', include('blog.urls')),
     path('api/account/', include('accounts.urls')),
-<<<<<<< HEAD
     path('api/evenements' ,include('evenements.urls'))
-=======
-    path('api/', include('ceremony.urls')),
->>>>>>> bc4793e37fabf166015da443b89d63ea21d15287
 ]
 #oppp
