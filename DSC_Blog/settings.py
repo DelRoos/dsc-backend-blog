@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     'corsheaders',
-    'ceremony.apps.CeremonyConfig',
 
 ]
 
