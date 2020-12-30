@@ -56,7 +56,11 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     'corsheaders',
+<<<<<<< HEAD
     'evenements.apps.EvenementsConfig'
+=======
+    'ceremony.apps.CeremonyConfig',
+>>>>>>> bc4793e37fabf166015da443b89d63ea21d15287
 
 ]
 
