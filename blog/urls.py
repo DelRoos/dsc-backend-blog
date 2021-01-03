@@ -6,7 +6,7 @@ from .views import (
     PostUpdateView,
     PostCreateView,
     ListRecentPostView,
-
+    
     TagListView, 
     TagDetailView,
     # TagDeleteView,

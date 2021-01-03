@@ -11,7 +11,6 @@ from utils.permissions import (
 from utils.pagination import PostLimitOffsetPagination, PostPageNumberPagination
 from rest_framework.filters import (    
     SearchFilter,
-    OrderingFilter,
     )
 
 from rest_framework.generics import (
@@ -255,7 +254,6 @@ class PostCommentListView(RetrieveAPIView):
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
     permission_classes = [IsPublish]
-
 
 class CommentCreateView(CreateAPIView):
     queryset = Comment.objects.all()
