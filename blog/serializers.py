@@ -124,6 +124,7 @@ class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = (
+                    'slug',
                     'user',
                     'title',
                     'category',
@@ -310,6 +311,7 @@ class LeconDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecon
         fields = (
+                    'slug',
                     'title',
                     'durate', 
                     'position',
@@ -376,7 +378,7 @@ class PostCommentDetailSerializer(serializers.ModelSerializer):
             comments_data.append(item)
         return comments_data
 
-class CommentCreateSerializer(serializers.ModelSerializer): 
+class CommentCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = (
@@ -433,3 +435,19 @@ class CommentDetailSerializer(serializers.ModelSerializer):
             responses_data.append(item)
         return responses_data
 
+    category = SerializerMethodField()
+
+    class Meta:
+        model = Post
+        fields = (
+                    'slug',
+                    'title',
+                    'category',
+                    'description', 
+                    'banner',
+                    'status',
+                    'publish_at'
+                )
+
+    def get_category(self, obj):
+        return str(obj.category.title)
