@@ -18,7 +18,7 @@ class FormationHasPublish(BasePermission):
     status = ['published', 'Published']
     
     def has_object_permission(self, request, view, obj):
-        return request.method == SAFE_METHODS and obj.formation.status == self.status
+        return obj.formation.status == self.status
 
 class IsAdminFormation(BasePermission):
     message = "You must be the owner of this object"

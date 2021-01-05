@@ -59,10 +59,6 @@ from .serializers import (
 class PostCreateView(CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostCreateSerializer
-    permission_classes = [IsAuthenticated, IsRedactor]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 
 class PostDetailView(RetrieveAPIView):
     queryset = Post.objects.all()
@@ -76,17 +72,17 @@ class PostUpdateView(RetrieveUpdateAPIView):
     serializer_class = PostCreateUpdateSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
-    permission_classes = [IsAuthenticated, IsRedactor, IsOwnerOrReadOnly]
+    # permission_classes = [IsAuthenticated, IsRedactor, IsOwnerOrReadOnly]
 
-    def perform_update(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_update(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class PostDeleteView(DestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostDetailSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
-    permission_classes = [IsAuthenticated, IsAdminUser, IsOwnerOrReadOnly]
+    # permission_classes = [IsAuthenticated, IsAdminUser, IsOwnerOrReadOnly]
 
 class PostListView(ListAPIView):
     serializer_class = PostDetailSerializer
@@ -161,10 +157,10 @@ class TagDetailView(RetrieveAPIView):
 class FormationCreateView(CreateAPIView):
     queryset = Formation.objects.all()
     serializer_class = FormationCreateSerializer
-    permission_classes = [IsAuthenticated, IsRedactor]
+    # permission_classes = [IsAuthenticated, IsRedactor]
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class FormationDetailView(RetrieveAPIView):
     queryset = Formation.objects.all()
@@ -178,17 +174,17 @@ class FormationUpdateView(RetrieveUpdateAPIView):
     serializer_class = FormationCreateUpdateSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
-    permission_classes = [IsAuthenticated, IsRedactor, IsOwnerOrReadOnly]
+    # permission_classes = [IsAuthenticated, IsRedactor, IsOwnerOrReadOnly]
 
-    def perform_update(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_update(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class FormationDeleteView(DestroyAPIView):
     queryset = Formation.objects.all()
     serializer_class = FormationDetailSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    # permission_classes = [IsAuthenticated, IsAdminUser]
 
 class FormationListView(ListAPIView):
     serializer_class = FormationDetailSerializer
@@ -218,35 +214,35 @@ class ListRecentFormationView(ListAPIView):
 class FormationCreateView(CreateAPIView):
     queryset = Formation.objects.all()
     serializer_class = FormationCreateSerializer
-    permission_classes = [IsAuthenticated, IsRedactor]
+    # permission_classes = [IsAuthenticated, IsRedactor]
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class LeconDetailView(RetrieveAPIView):
     queryset = Lecon.objects.all()
     serializer_class = LeconDetailSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
-    permission_classes = [FormationHasPublish]
+    # permission_classes = [FormationHasPublish]
 
 class LeconUpdateView(RetrieveUpdateAPIView):
     queryset = Lecon.objects.all()
     serializer_class = LeconDetailSerializer
-    permission_classes = [IsAuthenticated, IsAdminFormation]
+    # permission_classes = [IsAuthenticated, IsAdminFormation]
 
-    def perform_update(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_update(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class LeconDeleteView(DestroyAPIView):
     queryset = Lecon.objects.all()
     serializer_class = LeconDetailSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser, IsNotPublish]
+    # permission_classes = [IsAuthenticated, IsAdminUser, IsNotPublish]
 
 class LeconCreateView(CreateAPIView):
     queryset = Lecon.objects.all()
     serializer_class = LeconCreateSerializer
-    permission_classes = [IsAuthenticated, IsAdminFormation, IsNotPublish]
+    # permission_classes = [IsAuthenticated, IsAdminFormation, IsNotPublish]
 
 class PostCommentListView(RetrieveAPIView):
     queryset = Post.objects.all()
@@ -258,9 +254,9 @@ class PostCommentListView(RetrieveAPIView):
 class CommentCreateView(CreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentCreateSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class ResponseCommentCreateView(CreateAPIView):
     queryset = ResponseComment.objects.all()
     serializer_class = ResponseCommentCreateSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

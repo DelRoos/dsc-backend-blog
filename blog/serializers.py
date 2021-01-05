@@ -34,11 +34,13 @@ class FormationDetailSerializer(serializers.ModelSerializer):
     tag = SerializerMethodField()
     category = SerializerMethodField()
     lecon = SerializerMethodField()
+    user_id = SerializerMethodField()
     
     class Meta:
         model = Formation
         fields = (
                     'user',
+                    'user_id',
                     'title',
                     'slug',
                     'description', 
@@ -68,6 +70,10 @@ class FormationDetailSerializer(serializers.ModelSerializer):
     def get_user(self, obj):
         return str(obj.user.username)
 
+    def get_user_id(sefl, obj):
+        return obj.user.id
+
+
     def get_tag(self, obj):
         tags = obj.tag.all()
         tag_title = []
@@ -78,18 +84,20 @@ class FormationDetailSerializer(serializers.ModelSerializer):
     def get_category(self, obj):
         return str(obj.category.title)
 
-class FormationCreateSerializer(serializers.ModelSerializer): 
+class FormationCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Formation
         fields = (
                     'title',
                     'description', 
                     'banner', 
+                    'user',
                     'category',
                     'tag',
                     'prerequiste',
                     'objectif',
                 )
+    
 
 class FormationCreateUpdateSerializer(serializers.ModelSerializer):
     category = SerializerMethodField()
@@ -102,6 +110,7 @@ class FormationCreateUpdateSerializer(serializers.ModelSerializer):
                     'description', 
                     'banner', 
                     'category',
+                    'user',
                     'tag',
                     'prerequiste',
                     'objectif',
@@ -182,6 +191,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = (
+                    'user',
                     'title',
                     'description', 
                     'banner', 
@@ -198,6 +208,7 @@ class PostCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = (
+                    'user',
                     'title',
                     'description',
                     'banner',
@@ -222,6 +233,7 @@ class CategoryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (
+                    'id',
                     'user',
                     'title',
                     'description'
